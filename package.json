@@ -1,0 +1,24 @@
+{
+  "name": "@larlon/verifier-and-challenge",
+  "version": "1.0.0",
+  "description": "Generates a verifier and a challenge according to rfc7636. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lonnelars/verifier-and-challenge.git"
+  },
+  "keywords": [
+    "OIDC",
+    "PKCE",
+    "RFC7636"
+  ],
+  "author": "Lars Lønne",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lonnelars/verifier-and-challenge/issues"
+  },
+  "homepage": "https://github.com/lonnelars/verifier-and-challenge#readme"
+}
