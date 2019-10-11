@@ -2,9 +2,13 @@
   "name": "@larlon/verifier-and-challenge",
   "version": "1.0.0",
   "description": "Generates a verifier and a challenge according to rfc7636. ",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --config=jest.config.json",
+    "build": "parcel build index.js --no-source-maps --global verifierAndChallenge",
+    "preversion": "npm run build && npm run test",
+    "version": "git add -A dist",
+    "postversion": "git push && git push --tags"
   },
   "repository": {
     "type": "git",
@@ -20,5 +24,14 @@
   "bugs": {
     "url": "https://github.com/lonnelars/verifier-and-challenge/issues"
   },
-  "homepage": "https://github.com/lonnelars/verifier-and-challenge#readme"
+  "homepage": "https://github.com/lonnelars/verifier-and-challenge#readme",
+  "dependencies": {
+    "es6-promise": "4.2.8"
+  },
+  "devDependencies": {
+    "jest": "24.9.0",
+    "jest-puppeteer": "4.3.0",
+    "parcel": "1.12.4",
+    "puppeteer": "1.20.0"
+  }
 }
