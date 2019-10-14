@@ -1,7 +1,4 @@
 require("./TextEncoder.js");
-if (!Promise) {
-  require("es6-promise").polyfill();
-}
 
 function base64URLEncode(buffer) {
   function arrayBufferToBase64(buffer) {
@@ -35,14 +32,14 @@ function makeVerifier() {
 }
 
 function makeChallenge(verifier) {
-  const buffer = new TextEncoder().encode(verifier);
+  let buffer = new TextEncoder().encode(verifier);
   if (window.crypto) {
     return window.crypto.subtle.digest("SHA-256", buffer).then(base64URLEncode);
   } else if (window.msCrypto) {
     return new Promise((resolve, reject) => {
       const cryptoOperation = window.msCrypto.subtle.digest("SHA-256", buffer);
       cryptoOperation.oncomplete = function(event) {
-        resolve(cryptoOperation.result);
+        resolve(base64URLEncode(cryptoOperation.result));
       };
       cryptoOperation.onerror = function(event) {
         reject("Could not complete the SHA-256 hash.");

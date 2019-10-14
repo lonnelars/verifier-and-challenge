@@ -4,7 +4,7 @@
   "description": "Generates a verifier and a challenge according to rfc7636. ",
   "main": "dist/index.js",
   "scripts": {
-    "test": "jest --config=jest.config.json",
+    "test": "jest --config=jest.config.json test/index.test.js",
     "build": "parcel build index.js --no-source-maps --global verifierAndChallenge",
     "preversion": "npm run build && npm run test",
     "version": "git add -A dist",
@@ -25,9 +25,7 @@
     "url": "https://github.com/lonnelars/verifier-and-challenge/issues"
   },
   "homepage": "https://github.com/lonnelars/verifier-and-challenge#readme",
-  "dependencies": {
-    "es6-promise": "4.2.8"
-  },
+  "dependencies": {},
   "devDependencies": {
     "jest": "24.9.0",
     "jest-puppeteer": "4.3.0",
