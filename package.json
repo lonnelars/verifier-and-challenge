@@ -1,6 +1,6 @@
 {
   "name": "@larlon/verifier-and-challenge",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Generates a verifier and a challenge according to rfc7636. ",
   "main": "dist/index.js",
   "scripts": {
