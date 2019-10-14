@@ -16,7 +16,7 @@ function base64URLEncode(buffer) {
     .replace(/=/g, "");
 }
 
-function make() {
+function generateVerifierAndChallenge() {
   const verifier = makeVerifier();
   return makeChallenge(verifier).then(challenge => ({
     verifier,
@@ -50,4 +50,4 @@ function makeChallenge(verifier) {
   }
 }
 
-module.exports = { make };
+module.exports = { generateVerifierAndChallenge };

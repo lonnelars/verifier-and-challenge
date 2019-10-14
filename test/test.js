@@ -1,5 +1,5 @@
-const { make } = require("../index.js");
-const vc = make().then(values => {
+const { generateVerifierAndChallenge } = require("../index.js");
+const vc = generateVerifierAndChallenge().then(values => {
   const pVerifier = document.createElement("p");
   pVerifier.textContent = `verifier: ${values.verifier}`;
   document.body.appendChild(pVerifier);
