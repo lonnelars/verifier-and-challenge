@@ -8,3 +8,36 @@ These values can be used as a "Proof key for code exchange for OAuth public clie
 ## Compatibility
 
 The code should work in IE 11 and modern browsers, assuming that `window.Promise` is defined. For IE 11, that means you will have to use a polyfill. https://github.com/stefanpenner/es6-promise is one alternative. 
+
+## Examples 
+
+### Use with `require`
+
+```javascript
+const {
+  generateVerifierAndChallenge
+} = require("@larlon/verifier-and-challenge");
+generateVerifierAndChallenge()
+  .then(values => {
+    storeIn(sessionStorage, values.verifier);
+    return values;
+  })
+  .then(values => {
+    authenticate(values.challenge);
+  });
+```
+
+### Use with `import`
+
+```javascript
+import { generateVerifierAndChallenge } from "@larlon/verifier-and-challenge";
+
+generateVerifierAndChallenge()
+  .then(values => {
+    storeIn(sessionStorage, values.verifier);
+    return values;
+  })
+  .then(values => {
+    authenticate(values.challenge);
+  });
+```
